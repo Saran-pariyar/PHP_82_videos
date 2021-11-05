@@ -1,0 +1,3 @@
+Ways to connect to database with php:
+1.MySqli extension ->(Procedural way and Object oriented  way)
+2.PDO
