@@ -42,7 +42,7 @@
   </div>
   <!-- carosel end  -->
 
-  <!-- categories starts from here  -->
+  <!-- categories cards starts from here  -->
   <div class="container text-center my-3">
     <h2>iDiscuss - Browse Categories</h2>
     <div class="row my-3">
@@ -56,12 +56,13 @@
         $id = $row['category_id'];
         $cat = $row['category_name'];
         $desc = $row['category_description'];
+        //we will provide the catid=value of the url to the threadList from the below code
         echo '
     <div class="col-md-4 my-2 ">
         <div class="card" style="width: 18rem;">
           <img src="img/card-' . $id . '.jpeg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title"> <a href="threadList.php?catid=' . $id . '">' . $cat . '</a>  </h5>
+            <h5 class="card-title"> <a href="threadList.php?catid='.$id.'">'.$cat.'</a>  </h5>
             <p class="card-text">' . substr($desc, 0, 50) . '...</p>
             <a href="threadList.php" class="btn btn-primary">View threads</a>
           </div>

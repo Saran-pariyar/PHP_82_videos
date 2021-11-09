@@ -1,3 +1,4 @@
+<!-- //the only thing threadList.php need from the index.php is catid value, from the url  -->
 <!doctype html>
 <html lang="en">
 
@@ -13,7 +14,9 @@
   <?php include 'partials/_header.php';  ?>
   <?php include 'partials/_dbconnect.php';  ?>
   <?php
-  $id = $_GET['catid']; //this is id that we got from the link (line number 65 of index.php)
+  // the catid in index.php is taken from the $id variable from there and is used here so that it has same id value 
+  // we will get the catid for the $id from the hreflink in the index.php, that we give
+  $id = $_GET['catid']; //this is id that we got from the link (line number 65 of index.php) and it can be of any name, not just 'catid'
   $sql = " SELECT * FROM `categories` WHERE category_id=$id";
   $result = mysqli_query($conn, $sql);
   while ($row = mysqli_fetch_assoc($result)) {
@@ -23,6 +26,7 @@
   ?>
 
 <?php
+// the below code will add question with title and description 
 $showAlert = false;
 $method = $_SERVER['REQUEST_METHOD'];
 // echo $method;
@@ -42,10 +46,6 @@ if ($method == "POST"){
   }
 }
 ?>
-
-
-
-
   <div class="container my-4 bg-light">
     <div class="jumbotron">
       <h1 class="display-4">Welcome to <?php echo $catname ?> forums</h1>
@@ -85,11 +85,15 @@ if ($method == "POST"){
     $id = $row['thread_id'];
     $title = $row['thread_title'];
     $desc = $row['thread_desc'];
+    $thread_time = $row['timestamp'];
+    //this string will print the question, title and little description from the database(threadList)
     echo '
     <div class="container bg-light">
     <div class="media my-3 mr-3">
       <img class="mr-3" src="img/userdefault.png" width="54px" alt="Generic placeholder image">
       <div class="media-body">
+      <p class="my-0"><b>Anonymous user :</b></P>
+      <p class="my-0"><i>'.$thread_time.'</i></p>
        <h5 class="mt-0 "><a class="text-dark" href="threads.php?threadid=' . $id . '">' . $title . '</a></h5> 
         <p>' . $desc . '</p> 
       </div>

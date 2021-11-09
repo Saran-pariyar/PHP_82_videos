@@ -49,7 +49,7 @@ if ($method == "POST"){
         <?php echo $desc; ?>
       </p>
       <p>This is a peer to peer forum to share knowledge</p>
-      <p><b>Posted by Harry</b></p>
+      <p>Posted by <b>Harry</b></p>
     </div>
   </div>
 
@@ -63,14 +63,6 @@ if ($method == "POST"){
   $th_desc = $_POST['desc'];
   $sql = "INSERT INTO `threads` ( `thread_title`, `thread_desc`, `thread_cat_id`, `thread_user_id`, `timestamp`) VALUES ('$th_title', '$th_desc', '$id', '0', current_timestamp());";
   $result = mysqli_query($conn, $sql);
-//   $showAlert = true;
-
-//   if($showAlert){
-//     echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-//              <strong>Success!</strong>  Your thread has been successfully added.Please wait for community to respond.
-//               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-//           </div>';
-//   }
 }
 ?>
 

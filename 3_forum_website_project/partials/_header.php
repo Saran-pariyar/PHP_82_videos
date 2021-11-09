@@ -42,4 +42,20 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 // in the login button, we added data-bs-toggle="modal" and data-bs-target="#loginModal" from the login.php  modal itself
 include 'partials/_loginModal.php';
 include 'partials/_signupModal.php';
+if(isset($_GET['signupsuccess']) && $_GET['signupsuccess'] == "true"){
+  echo '<div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+  <strong>Success!</strong> You can now login.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+}
+else{
+  echo '<div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>';
+}
 ?>
